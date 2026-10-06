@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Information Systems · Plug &amp; Play Learning Modules</title>
+<meta name="description" content="Four self-contained Information Systems learning modules (Ethics &amp; Privacy, Security, E-commerce, Data &amp; Knowledge Management) designed to plug into undergraduate, postgraduate, short-course, online and face-to-face teaching.">
+<meta name="theme-color" content="#231f20">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root{
+  color-scheme:light;
+  --black:#231f20;--yellow:#ffe600;--yellow-soft:#fff7bf;--yellow-ink:#655500;--olive:#806d00;
+  --ink:#231f20;--muted:#555;--line:#d2d2d2;--grey:#f1f1f1;--rail:#f3f3f3;--link:#174ca0;--focus:#0055b8;
+  --font:Arial,Helvetica,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font:16px/1.6 var(--font)}
+h1,h2,h3,h4{font-weight:900;letter-spacing:-.015em;text-wrap:balance;margin:0}
+a{color:var(--link);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.skip{position:absolute;left:10px;top:-60px;background:#fff;padding:10px;z-index:100}
+.skip:focus{top:10px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+.kicker{font-size:.78rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+
+/* Top bar */
+.topbar{background:var(--black);color:#fff;border-bottom:7px solid var(--yellow)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:64px}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
+.brand .tile{display:grid;place-items:center;width:34px;height:34px;background:var(--yellow);color:var(--black);font-weight:900;font-size:13px}
+.brand b{display:block;font-size:.95rem}
+.brand small{display:block;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--yellow)}
+.topnav{display:flex;gap:22px}
+.topnav a{color:#fff;text-decoration:none;font-size:.72rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.topnav a:hover{color:var(--yellow)}
+
+/* Hero */
+.hero{background:var(--yellow);clip-path:polygon(0 0,100% 0,100% 74%,88% 100%,0 88%);padding:64px 0 120px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.1rem,4.4vw,3.6rem);line-height:1.04;margin:.7rem 0 1.1rem}
+.hero p{font-size:1.15rem;max-width:700px;margin:0 0 1rem}
+.hero .lede-strong{font-weight:700}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:1.4rem}
+.btn{display:inline-block;padding:12px 20px;border:2px solid var(--black);font-weight:900;text-decoration:none;color:var(--black);background:#fff}
+.btn.dark{background:var(--black);color:var(--yellow)}
+.btn:hover{background:var(--black);color:var(--yellow)}
+.btn.dark:hover{background:#fff;color:var(--black)}
+.plug{background:#fff;padding:18px;box-shadow:0 4px 12px rgba(0,0,0,.12)}
+.plug svg{display:block;width:100%;height:auto}
+
+/* Fit strip */
+.fit{margin-top:-40px;position:relative}
+.fit-box{background:#fff;border:2px solid var(--black);padding:22px 26px;display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:center}
+.fit-box h2{font-size:1.15rem;line-height:1.25}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.chips li{padding:6px 12px;background:var(--grey);border:1px solid #c8c8c8;font-size:.85rem;font-weight:700}
+.chips li b{color:var(--yellow-ink);margin-right:4px;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}
+
+section{padding:72px 0 0}
+.section-head{max-width:760px;margin-bottom:28px}
+.section-head .kicker{color:var(--yellow-ink)}
+.section-head h2{font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.12;margin:.4rem 0 .7rem}
+.section-head p{margin:0;color:#3d3d3d;font-size:1.05rem}
+
+/* Modules */
+.modules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+.module{display:flex;flex-direction:column;border:1px solid var(--line);border-top:6px solid var(--black);background:#fff;transition:transform .2s,box-shadow .2s}
+.module:hover{transform:translateY(-3px);box-shadow:6px 6px 0 var(--yellow)}
+.module figure{margin:0;position:relative;aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--line);background:var(--grey)}
+.module figure img{display:block;width:100%;height:100%;object-fit:cover;object-position:top left}
+.module .num{position:absolute;left:0;top:0;background:var(--black);color:var(--yellow);font-weight:900;font-size:1.1rem;padding:8px 14px}
+.module .body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+.module .kicker{color:var(--yellow-ink);font-size:.7rem}
+.module h3{font-size:1.5rem;line-height:1.15;margin:.35rem 0 .6rem}
+.module p{margin:0 0 .9rem}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 1rem;padding:0;list-style:none}
+.meta li{font-size:.75rem;font-weight:900;letter-spacing:.04em;padding:4px 8px;background:var(--yellow-soft);border:1px solid #e7d873}
+.module ul.does{margin:0 0 1.2rem;padding-left:20px;font-size:.95rem}
+.module ul.does li{margin:4px 0}
+.module .open{margin-top:auto;align-self:flex-start}
+
+/* Anatomy */
+.anatomy{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;counter-reset:step;list-style:none;margin:0;padding:0;border:2px solid var(--black)}
+.anatomy li{padding:20px 18px;border-right:1px solid var(--line);background:#fff;position:relative}
+.anatomy li:last-child{border-right:0}
+.anatomy li:nth-child(odd){background:var(--grey)}
+.anatomy li::before{counter-increment:step;content:counter(step,decimal-leading-zero);display:inline-block;background:var(--yellow);font-weight:900;font-size:.8rem;padding:2px 8px;margin-bottom:10px}
+.anatomy b{display:block;font-size:1.05rem;margin-bottom:4px}
+.anatomy span{font-size:.9rem;color:#3d3d3d}
+.note{font-size:.9rem;color:var(--muted);margin-top:12px}
+
+/* Delivery recipes */
+.recipes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.recipe{border-top:4px solid var(--black);background:var(--grey);padding:20px 22px}
+.recipe .kicker{color:var(--yellow-ink);font-size:.7rem}
+.recipe h3{font-size:1.2rem;margin:.3rem 0 .5rem}
+.recipe p{margin:0;font-size:.95rem}
+
+/* Value */
+.value-intro{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:40px;align-items:start}
+.value-intro .diagram{border:2px solid var(--black);padding:16px;background:#fff}
+.value-intro .diagram svg{display:block;width:100%;height:auto}
+.value-intro .diagram figcaption{font-size:.85rem;color:var(--muted);margin-top:8px}
+.values{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-top:30px;border-top:1px solid var(--line)}
+.value{display:grid;grid-template-columns:56px 1fr;gap:16px;padding:24px 20px 24px 0;border-bottom:1px solid var(--line)}
+.values .value:nth-child(odd){border-right:1px solid var(--line)}
+.values .value:nth-child(even){padding-left:24px}
+.value .n{font-size:2rem;font-weight:900;line-height:1;color:var(--black);background:var(--yellow);display:grid;place-items:center;width:52px;height:52px}
+.value h3{font-size:1.15rem;margin:0 0 .35rem}
+.value p{margin:0;font-size:.97rem}
+.callout{margin-top:34px;background:var(--black);color:#f4f4f4;border-left:8px solid var(--yellow);padding:26px 30px}
+.callout h3{color:var(--yellow);font-size:1.25rem;margin-bottom:.5rem}
+.callout p{margin:.4rem 0 0}
+
+/* Principles */
+.principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.principle{border:1px solid var(--line);padding:18px}
+.principle b{display:block;margin-bottom:4px}
+.principle span{font-size:.92rem;color:#3d3d3d}
+
+footer{margin-top:80px;background:var(--rail);border-top:1px solid #d8d8d8;padding:30px 0 40px;font-size:.88rem;color:#444}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
+footer ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:16px}
+
+@media(max-width:980px){
+  .hero .wrap{grid-template-columns:1fr}
+  .plug{display:none}
+  .modules,.recipes,.values{grid-template-columns:1fr}
+  .values .value:nth-child(odd){border-right:0}
+  .values .value:nth-child(even){padding-left:0}
+  .anatomy{grid-template-columns:1fr}
+  .anatomy li{border-right:0;border-bottom:1px solid var(--line)}
+  .value-intro{grid-template-columns:1fr}
+  .principles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fit-box{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .topnav{display:none}
+  .hero{padding:44px 0 96px;clip-path:polygon(0 0,100% 0,100% 88%,80% 100%,0 94%)}
+  .principles{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.module{transition:none}.module:hover{transform:none}}
+@media print{.topbar,.btns,.plug{display:none}.hero{clip-path:none;background:#fff;border-bottom:4px solid #000;padding:0 0 20px}.module{break-inside:avoid}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="./"><span class="tile">IS</span><span><b>Information Systems</b><small>Plug &amp; Play Learning Modules</small></span></a>
+    <nav class="topnav" aria-label="Page sections">
+      <a href="#modules">Modules</a>
+      <a href="#plug-in">Plug it in</a>
+      <a href="#why">Why this approach</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <div class="kicker">Information Systems · Plug &amp; Play Learning Modules</div>
+        <h1>Four modules.<br>Any course. Any mode.</h1>
+        <p class="lede-strong">Self-contained, interactive learning modules on core Information Systems topics, each ready to drop into an existing course.</p>
+        <p>Use one module or all four, in undergraduate or postgraduate programs, across a term or semester, in a short course, online or face-to-face. Each opens in a browser with nothing to install, no logins and no setup.</p>
+        <div class="btns">
+          <a class="btn dark" href="#modules">Browse the modules</a>
+          <a class="btn" href="#why">Why build content this way</a>
+        </div>
+      </div>
+      <div class="plug" aria-hidden="true">
+        <svg viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#231f20" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+          <rect x="18" y="20" width="224" height="120" fill="#f1f1f1"/>
+          <path d="M18 44 H242"/>
+          <rect x="34" y="60" width="44" height="64" fill="#ffe600"/>
+          <rect x="88" y="60" width="44" height="64" fill="#fff"/>
+          <rect x="142" y="60" width="44" height="64" fill="#ffe600"/>
+          <rect x="196" y="60" width="30" height="64" fill="#fff" stroke-dasharray="7 6"/>
+          <path d="M130 140 V160"/>
+          <rect x="100" y="160" width="60" height="22" fill="#231f20"/>
+          <path d="M116 182 V194 M144 182 V194"/>
+          <text x="211" y="98" text-anchor="middle" font-family="Arial" font-size="22" font-weight="900" fill="#231f20" stroke="none">+</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap fit">
+    <div class="fit-box">
+      <h2>Designed to fit wherever you teach</h2>
+      <ul class="chips" aria-label="Delivery contexts">
+        <li><b>Level</b>Undergraduate</li>
+        <li><b>Level</b>Postgraduate</li>
+        <li><b>Length</b>Term or semester</li>
+        <li><b>Length</b>Short course</li>
+        <li><b>Mode</b>Online</li>
+        <li><b>Mode</b>Face-to-face</li>
+        <li><b>Mode</b>Blended or flipped</li>
+      </ul>
+    </div>
+  </div>
+
+  <section id="modules" aria-labelledby="modules-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">The modules</div>
+        <h2 id="modules-title">Four core IS topics, one consistent learning experience</h2>
+        <p>Each module stands alone. They share a design system and a learning pattern, so learners who meet one can move through the others without relearning how they work.</p>
+      </div>
+
+      <div class="modules">
+        <article class="module">
+          <figure><img src="assets/ethics.jpg" alt="Ethics and Privacy module home page" loading="lazy" width="864" height="486"><span class="num">01</span></figure>
+          <div class="body">
+            <div class="kicker">Information Systems · Ethics &amp; Privacy</div>
+            <h3>Ethics and Privacy</h3>
+            <p><strong>Just because we can, should we?</strong> Learners separate ethics, law, privacy and security, then apply them to everyday data decisions and AI cases.</p>
+            <ul class="meta"><li>75–95 min study</li><li>+ 35–45 min discussion &amp; lab</li><li>6 stages</li><li>6 practice checks</li></ul>
+            <ul class="does">
+              <li>A running café scenario about collecting, profiling and AI use of customer data</li>
+              <li>Introduction video, audio discussions and AI case studies</li>
+              <li>Responsibility, accountability and liability in practice</li>
+            </ul>
+            <a class="btn dark open" href="https://mcahalane.github.io/INFS-Ethics-and-Privacy-Lesson/">Open module →</a>
+          </div>
+        </article>
+
+        <article class="module">
+          <figure><img src="assets/security.jpg" alt="IS Security module home page" loading="lazy" width="864" height="486"><span class="num">02</span></figure>
+          <div class="body">
+            <div class="kicker">Information Systems · Topic: IS Security</div>
+            <h3>IS Security</h3>
+            <p><strong>Protect the information. Keep the business running.</strong> Learners trace why information is vulnerable, how people and AI are targeted, and how a business chooses controls and recovers.</p>
+            <ul class="meta"><li>110–135 min</li><li>6 stages</li><li>6 practice checks</li><li>7 short video pauses</li></ul>
+            <ul class="does">
+              <li>CIA triad, threats, risk strategies, layered controls and recovery</li>
+              <li>Cognitive security: notifications, fatigue and AI reliance</li>
+              <li>U.S. and Australian cases, plus a downloadable café risk worksheet</li>
+            </ul>
+            <a class="btn dark open" href="https://mcahalane.github.io/IS-Security/">Open module →</a>
+          </div>
+        </article>
+
+        <article class="module">
+          <figure><img src="assets/ecommerce.jpg" alt="E-commerce module home page" loading="lazy" width="864" height="486"><span class="num">03</span></figure>
+          <div class="body">
+            <div class="kicker">Information Systems · E-commerce · Hands-on</div>
+            <h3>Build Your Own Online Shop</h3>
+            <p><strong>From the dot-com era to AI, then build one.</strong> Learners follow e-commerce from early online bookstores to AI shopping agents, then build and launch a working shop that takes test payments.</p>
+            <ul class="meta"><li>About 5–6 hours</li><li>3 parts</li><li>Check to unlock each stage</li><li>Test mode: no real money</li></ul>
+            <ul class="does">
+              <li>Business models, payments and a teaching case (AMARO)</li>
+              <li>Build with AI-assisted “vibe coding”, Stripe, Supabase and Vercel</li>
+              <li>What changes when a shop goes live: customers, delivery, rules, trust and risk</li>
+            </ul>
+            <a class="btn dark open" href="https://mcahalane.github.io/e-commerce-lesson/">Open module →</a>
+          </div>
+        </article>
+
+        <article class="module">
+          <figure><img src="assets/dkm.jpg" alt="Data and Knowledge Management module home page" loading="lazy" width="864" height="486"><span class="num">04</span></figure>
+          <div class="body">
+            <div class="kicker">Information Systems · Data &amp; Knowledge Management</div>
+            <h3>Data &amp; Knowledge Management</h3>
+            <p><strong>From data to knowledge.</strong> Learners build the ladder from raw observations to organisational knowledge, then explore the systems and infrastructure that store, analyse and share it.</p>
+            <ul class="meta"><li>8 sections</li><li>12–22 min each</li><li>Glossary</li><li>Progress tracking</li></ul>
+            <ul class="does">
+              <li>Data governance, databases, warehouses and decision support</li>
+              <li>Big Data, analytics and knowledge management</li>
+              <li>Data centres, the cloud and quantum computing</li>
+            </ul>
+            <a class="btn dark open" href="https://mcahalane.github.io/information-systems-data-knowledge-management/">Open module →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="anatomy" aria-labelledby="anatomy-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">What “plug &amp; play” means here</div>
+        <h2 id="anatomy-title">Every module shares the same anatomy</h2>
+        <p>A teacher can predict what a module contains and how long it takes before opening it. A learner knows how to move through it after the first one.</p>
+      </div>
+      <ol class="anatomy">
+        <li><b>Hook</b><span>A short video, scenario or question that frames why the topic matters to a business.</span></li>
+        <li><b>Guided stages</b><span>Short, sequenced explanations with everyday examples and current cases.</span></li>
+        <li><b>Practice checks</b><span>Ungraded questions with explanatory feedback and unlimited retries.</span></li>
+        <li><b>Apply it</b><span>A scenario, worksheet, build or decision that turns concepts into judgement.</span></li>
+        <li><b>Sources</b><span>Dated sources and further reading, so claims can be checked and updated.</span></li>
+      </ol>
+      <p class="note">All modules run in any modern browser on desktop or mobile. Progress saves in the learner’s own browser; nothing is submitted, and there are no accounts or analytics.</p>
+    </div>
+  </section>
+
+  <section id="plug-in" aria-labelledby="plugin-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Plug it in</div>
+        <h2 id="plugin-title">The same module, six ways to use it</h2>
+        <p>Modules are links, not lock-in. Add one to an LMS page (Moodle, Canvas, Blackboard, Teams), a course outline or a slide, then frame it to suit the cohort.</p>
+      </div>
+      <div class="recipes">
+        <article class="recipe"><div class="kicker">Undergraduate · Semester</div><h3>Weekly topic</h3><p>Set a module as the core learning for its week. Learners complete it before class, and the tutorial builds on the scenario and checks.</p></article>
+        <article class="recipe"><div class="kicker">Postgraduate · Term</div><h3>Foundation plus depth</h3><p>Use the module to establish shared foundations quickly, then spend contact time on cases, debate and the cohort’s own professional contexts.</p></article>
+        <article class="recipe"><div class="kicker">Short course · Executive</div><h3>Self-contained block</h3><p>Each module is a ready-made 1½ to 6 hour unit. Combine two or more to build a short course on a theme such as data, risk and trust.</p></article>
+        <article class="recipe"><div class="kicker">Online · Asynchronous</div><h3>Self-paced learning</h3><p>Built-in explanations, feedback and written alternatives to video mean learners can complete a module without a live session.</p></article>
+        <article class="recipe"><div class="kicker">Face-to-face · Workshop</div><h3>In-class activity</h3><p>Project a scenario, run the checks as a class poll, or have groups work through an applied activity together.</p></article>
+        <article class="recipe"><div class="kicker">Blended · Flipped</div><h3>Prepare, then apply</h3><p>Learners cover concepts beforehand at their own pace; class time goes to discussion, application and assessment tasks set locally.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" aria-labelledby="why-title">
+    <div class="wrap">
+      <div class="value-intro">
+        <div class="section-head">
+          <div class="kicker">Why this approach</div>
+          <h2 id="why-title">The value of building learning content as modules</h2>
+          <p>Course content is usually built for one course, one cohort and one delivery mode, and has to be rebuilt when any of those change. A modular approach separates the <em>learning resource</em> from the <em>course it sits in</em>. Each topic is designed once, to a common standard, and reused wherever it fits.</p>
+          <p style="margin-top:.8rem">These modules already demonstrate it: the Security module began as a lesson for one university and was adapted for this collection by changing its theme and framing, not by rewriting its content.</p>
+        </div>
+        <figure class="diagram">
+          <svg viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif" role="img" aria-labelledby="dg-t">
+            <title id="dg-t">One module is built once and reused across many teaching contexts</title>
+            <rect x="120" y="105" width="120" height="50" fill="#ffe600" stroke="#231f20" stroke-width="3"/>
+            <text x="180" y="127" text-anchor="middle" font-size="13" font-weight="900" fill="#231f20">Build once</text>
+            <text x="180" y="144" text-anchor="middle" font-size="11" fill="#231f20">one module</text>
+            <g stroke="#231f20" stroke-width="2" fill="none">
+              <path d="M120 120 L82 52"/><path d="M180 105 L180 52"/><path d="M240 120 L278 52"/>
+              <path d="M120 140 L82 208"/><path d="M180 155 L180 208"/><path d="M240 140 L278 208"/>
+            </g>
+            <g font-size="11" font-weight="700" fill="#231f20" text-anchor="middle">
+              <rect x="32" y="22" width="100" height="30" fill="#f1f1f1" stroke="#231f20" stroke-width="2"/><text x="82" y="41">Undergraduate</text>
+              <rect x="130" y="22" width="100" height="30" fill="#f1f1f1" stroke="#231f20" stroke-width="2"/><text x="180" y="41">Postgraduate</text>
+              <rect x="228" y="22" width="100" height="30" fill="#f1f1f1" stroke="#231f20" stroke-width="2"/><text x="278" y="41">Short course</text>
+              <rect x="32" y="208" width="100" height="30" fill="#fff" stroke="#231f20" stroke-width="2"/><text x="82" y="227">Online</text>
+              <rect x="130" y="208" width="100" height="30" fill="#fff" stroke="#231f20" stroke-width="2"/><text x="180" y="227">Face-to-face</text>
+              <rect x="228" y="208" width="100" height="30" fill="#fff" stroke="#231f20" stroke-width="2"/><text x="278" y="227">Other institutions</text>
+            </g>
+          </svg>
+          <figcaption>Build once, use in many places: the module stays the same, and the course around it changes.</figcaption>
+        </figure>
+      </div>
+
+      <div class="values">
+        <div class="value"><span class="n" aria-hidden="true">1</span><div><h3>Build once, reuse widely</h3><p>Effort spent on one strong module pays off in every course, cohort and institution that uses it. New courses start from proven material instead of a blank page.</p></div></div>
+        <div class="value"><span class="n" aria-hidden="true">2</span><div><h3>Mode-independent by design</h3><p>Because explanation, practice and feedback live inside the module, it works equally well self-paced online, as flipped preparation, or as a structured in-class activity.</p></div></div>
+        <div class="value"><span class="n" aria-hidden="true">3</span><div><h3>Consistent learner experience</h3><p>A shared design system and learning pattern reduce the effort of learning <em>how</em> to use each resource, leaving more attention for the content itself.</p></div></div>
+        <div class="value"><span class="n" aria-hidden="true">4</span><div><h3>Update in one place</h3><p>Each module lives in its own version-controlled repository. When a case, statistic or regulation changes, one edit updates every course that links to it, with a history of what changed.</p></div></div>
+        <div class="value"><span class="n" aria-hidden="true">5</span><div><h3>Low cost, low barrier, no lock-in</h3><p>Modules are static web pages hosted for free. There is nothing to install and no accounts to create, and they are not tied to a particular LMS or vendor. A link is enough.</p></div></div>
+        <div class="value"><span class="n" aria-hidden="true">6</span><div><h3>Teachers keep control of the course</h3><p>Modules provide the core learning, not the assessment. Each course team still sets its own outcomes, discussion, assessment and local context around the module.</p></div></div>
+        <div class="value"><span class="n" aria-hidden="true">7</span><div><h3>Privacy and accessibility built in</h3><p>No tracking or analytics, with progress kept in the learner’s browser. Keyboard support, mobile layouts, print and read-all views, and written alternatives to video are part of the standard, not add-ons.</p></div></div>
+        <div class="value"><span class="n" aria-hidden="true">8</span><div><h3>A collection that grows</h3><p>Because every module follows the same pattern, new topics can be added to the collection without redesigning what already exists, and quality improvements can be shared across all modules.</p></div></div>
+      </div>
+
+      <div class="callout">
+        <h3>In short</h3>
+        <p>Modular content treats a learning resource like a reusable component: designed carefully once, tested, and then combined in different ways for different learners. Teachers spend less time rebuilding foundations and more time on the parts of teaching that need them.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="principles-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Design standard</div>
+        <h2 id="principles-title">What every module commits to</h2>
+      </div>
+      <div class="principles">
+        <div class="principle"><b>Standalone</b><span>No prerequisite lessons, chapters or lectures are assumed.</span></div>
+        <div class="principle"><b>Time-boxed</b><span>Suggested study time is stated up front, so modules can be planned into a schedule.</span></div>
+        <div class="principle"><b>Evidence-aware</b><span>Cases are dated and sourced; fictional scenarios are labelled as fictional.</span></div>
+        <div class="principle"><b>Business-focused</b><span>Concepts are tied to decisions an organisation actually has to make.</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><strong>Information Systems · Plug &amp; Play Learning Modules</strong><br>Interactive learning resources for business students.</div>
+    <ul aria-label="Modules">
+      <li><a href="https://mcahalane.github.io/INFS-Ethics-and-Privacy-Lesson/">Ethics &amp; Privacy</a></li>
+      <li><a href="https://mcahalane.github.io/IS-Security/">IS Security</a></li>
+      <li><a href="https://mcahalane.github.io/e-commerce-lesson/">E-commerce</a></li>
+      <li><a href="https://mcahalane.github.io/information-systems-data-knowledge-management/">Data &amp; Knowledge Management</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>
