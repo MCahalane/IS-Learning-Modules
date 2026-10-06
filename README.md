@@ -1,14 +1,15 @@
 # Information Systems · Plug & Play Learning Modules
 
-A homepage that brings together five self-contained Information Systems learning modules and explains how they plug into undergraduate, postgraduate, term/semester, short-course, online and face-to-face teaching.
+A homepage that brings together six self-contained Information Systems learning modules and explains how they plug into undergraduate, postgraduate, term/semester, short-course, online and face-to-face teaching.
 
 | # | Module | Live site |
 |---|--------|-----------|
-| 01 | Ethics and Privacy | https://mcahalane.github.io/INFS-Ethics-and-Privacy-Lesson/ |
-| 02 | IS Security | https://mcahalane.github.io/IS-Security/ |
-| 03 | Vibe Coding: Building with AI | https://mcahalane.github.io/IS-Vibe-Coding/ |
-| 04 | Build Your Own Online Shop (E-commerce) | https://mcahalane.github.io/e-commerce-lesson/ |
-| 05 | Data & Knowledge Management | https://mcahalane.github.io/information-systems-data-knowledge-management/ |
+| 01 | Introduction to AI for Business | https://mcahalane.github.io/IS-Intro-to-AI/ |
+| 02 | Ethics and Privacy | https://mcahalane.github.io/INFS-Ethics-and-Privacy-Lesson/ |
+| 03 | IS Security | https://mcahalane.github.io/IS-Security/ |
+| 04 | Vibe Coding: Building with AI | https://mcahalane.github.io/IS-Vibe-Coding/ |
+| 05 | Build Your Own Online Shop (E-commerce) | https://mcahalane.github.io/e-commerce-lesson/ |
+| 06 | Data & Knowledge Management | https://mcahalane.github.io/information-systems-data-knowledge-management/ |
 
 ## Files
 
